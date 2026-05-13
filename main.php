@@ -8,6 +8,8 @@
 <body>
     <?php
 
+    // Dział 1
+
     $name = "Jakub";
     $age = 16;
     $country = "Polska";
@@ -72,9 +74,44 @@
 
     echo "<br>";
 
+    $color = 1;
+    switch ($color) {
+        case 1:
+            echo "czerwony";
+            break;
+        case 2:
+            echo "niebieski";
+            break;
+        case 3:
+            echo "zielony";
+            break;
+        default:
+            echo "inny kolor";
+    }
+
+    echo "<br>";
+
+    $grade = 50;
+    $lol = ($grade >= 50) ? "Zdany" : "Niezdany";
+    echo "<br>". $lol;
+
+    echo "<br>";
+
+    $username = "";
+
+    if (empty($username)) {
+        $username = "guest";
+    }
+
+
+    // Dział 3
+
+    echo "<br>";
     
 
 
+
+    
 
     ?>
 
