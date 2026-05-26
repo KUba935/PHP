@@ -79,6 +79,10 @@
 
     // Zadanie 6
 
+    $sql = "SELECT id, nazwa, cena FROM produkty WHERE dostępność = 1"
+    $result = mysqli_query($conn, $sql);
+
+    
 
     ?>
     <form action='index.php' method='POST'>
