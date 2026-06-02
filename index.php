@@ -5,14 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="index.css">
 </head>
 
 <body>
+    <div class="jj">
     <?php
 
     // Zadanie 1
     try {
-        $conn = mysqli_connect("localhost", "root", "", "phpprzyklad");
+        $conn = mysqli_connect("localhost", "root", "", "phpprojekt");
 
         if (mysqli_connect_errno()) {
             echo "Nie połączono";
@@ -54,6 +56,8 @@
         echo "Użytkownik dodany pomyślnie";
     }
 
+    
+
     // Zadanie 4
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['insert2'])) {
@@ -76,6 +80,7 @@
         mysqli_query($conn, $sql);
     }
 
+    
     // Zadanie 6
 
     $sql = "SELECT id, nazwa, cena FROM produkty WHERE dostępność = 1";
@@ -111,11 +116,63 @@
 
     echo "</table>";
 
+    echo "<br>";
+
     // Zadanie 7
 
+    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['insert4'])) {
 
+        $nazwa = $_POST['nazwa'];
+        $opis = $_POST['opis'];
+        $cena = $_POST['cena'];
+        $kategoria = $_POST['kategoria'];
+
+
+        $sql = "INSERT INTO produkty (nazwa, opis, cena, kategoria) VALUES ('$nazwa', '$opis', '$cena', '$kategoria')";
+        mysqli_query($conn, $sql);
+
+    }
+
+    // Zadanie 8
+
+    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['insert5'])) {
+
+        $id = $_POST['id'];
+        $cena = $_POST['cena'];
+
+        $sql = "UPDATE produkty SET cena = '$cena' WHERE id = '$id'";
+        mysqli_query($conn, $sql);
+    }
+
+    // Zadanie 9
+
+    $conn = mysqli_connect("localhost", "root", "", "phpprojekt");
+    $sql = "SELECT koszyk.id_uzytkownika, nazwa, cena, kategoria FROM produkty INNER JOIN koszyk ON produkty.id = koszyk.id_produktu";
+    $result = mysqli_query($conn, $sql);
+    while($row = mysqli_fetch_assoc($result)) {
+        $id = $row['id_uzytkownika'];
+        $nazwa = $row['nazwa'];
+        $cena = $row['cena'];
+        $kategoria = $row['kategoria'];
+        echo "<p> ID: $id - Nazwa: $nazwa - Cena: $cena - Kategoria: $kategoria </p>";
+    }
+
+    echo "<br>";
+
+    // Zadanie 10
+
+    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['insert6'])) {
+
+        $id = $_POST['id'];
+
+        $sql = "DELETE FROM koszyk WHERE id_koszyka = $id";
+        mysqli_query($conn, $sql);
+    }
 
     ?>
+
+    <img src="Firefly_Gemini Flash.png" alt="sklep">
+
     <form action='index.php' method='POST'>
         <label for='nazwa'>
             <p>Podaj Nazwe:</p>
@@ -174,8 +231,42 @@
             <p>Podaj opis produktu</p>
             <input type="text" name='opis' id='opis'>
         </label>
-        <label for=""></label>
+        <label for="cena">
+            <p>Podaj cenę</p>
+            <input type="text" name='cena' id='cena'>
+        </label>
+        <label for="kategoria">
+            <p>Podaj kategorię</p>
+            <input type="text" name='kategoria' id='kategoria'>
+        </label>
+        <button name='insert4'>Dodaj produkt</button>
+
     </form>
+
+    <br>
+
+    <form action="index.php" method='POST'>
+        <label for="id">
+            <p>Podaj id</p>
+            <input type="number" name='id' id='id'>
+        </label>
+        <label for="cena">
+            <p>Podaj nową cenę</p>
+            <input type="text" name='cena' id='cena'>
+        </label>
+        <button name='insert5'>Zaaktualizuj</button>
+    </form>
+
+    <br>
+
+    <form action="index.php" method='POST'>
+        <label for="id">
+            <p>Podaj id</p>
+            <input type="number" name='id' id='id'>
+        </label>
+        <button name='insert6'>Usuń</button>
+    </form>
+    </div>
 </body>
 
 </html>
