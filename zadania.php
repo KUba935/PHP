@@ -111,7 +111,11 @@
         }
     ?>
     <?php
-        
+        echo"<br>";
+        $tablice = ["Jakub", "Roman", "Seth", "Dean", "Sebastian"];
+        foreach($tablice as $tablica) {
+            echo"$tablica";
+        }
     ?>
 </body>
 </html>
