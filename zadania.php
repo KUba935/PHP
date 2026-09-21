@@ -28,11 +28,90 @@
         echo var_dump($isMember);
     ?>
     <?php
-        $liczba1 = 6;
-        $liczba2 = 7;
+        $liczba1 = 5;
+        $liczba2 = 25;
 
         $suma = $liczba1 + $liczba2;
-        $różnica = $liczba2 - $liczba1;
+        $roznica = $liczba2 - $liczba1;
+        $iloczyn = $liczba1 * $liczba2;
+        $reszta = $liczba1 % $liczba2;
+        echo "Suma: $suma, Różnica: $roznica, Iloczyn: $iloczyn, Reszta: $reszta";
+    ?>
+
+    <!-- Warunkowe -->
+
+    <?php
+        $age = 18;
+        echo"<br>";
+
+        if ($age >= 18){
+            echo TRUE;
+        } else{
+            echo FALSE;
+        }
+    ?>
+    <?php
+        $temperatura = -1;
+        echo"<br>";
+
+        if ($temperatura < 0) {
+            echo"Ujemna";
+        } elseif ($temperatura > 0) {
+            echo"Dodatnia";            
+        } else{
+            echo"Równa zero";
+        }
+    ?>
+    <?php
+        echo"<br>";
+        $color = "czerwony";
+        switch ($color) {
+        case "czerwony":
+            echo "zielony";
+            break;
+        case "zielony":
+            echo "niebieski";
+            break;
+        default:
+            echo "inny kolor";
+        }
+    ?>
+    <?php
+        echo"<br>";
+        $grade = 50;
+        if ($grade >= 50) {
+            echo "Zdany";
+        } elseif ($grade < 50) {
+            echo "Niezdany";
+        }
+    ?>
+    <?php
+        echo"<br>";
+        $username = "";
+
+        if (empty($username)) {
+            $username = "nazwa";
+        }
+        echo "$username";
+    ?>
+    <!-- Pętle -->
+
+    <?php
+        for ($i = 1; $i <= 10; $i++) {
+            echo "<br>$i";
+        }
+    ?>
+    <?php
+        $number = 2;
+        while ($number < 20 +1) {
+            if ($number % 2 == 0) {
+                echo"<br>Parzysta $number";
+            }
+            $number++;
+        }
+    ?>
+    <?php
+        
     ?>
 </body>
 </html>
