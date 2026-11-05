@@ -8,11 +8,31 @@
     }
 
     public function move(){
-        return "";
+        return "brum";
     }
         
     }
 
 
+    class Car extends Vehicle {
+        public $color;
+        public function __construct($color, $type) {
+            $this->color = $color;
+
+            return parent::__construct($type);
+        }
+        
+        public function move(){
+            return "vruuum";
+        }
+        public function xd(){
+            return parent::move();
+        }
+    }
+
+    $toyota = new Car("biały","osobowy");
+
+    echo $toyota->move();
+    echo $toyota->xd();
 
 ?>
