@@ -83,39 +83,84 @@
     // echo $dog->age. "<br>" ;
     // echo $dog->eat();
 
-    class Employee {
-        public $name;
-        protected $salary; 
+    // class Employee {
+    //     public $name;
+    //     protected $salary; 
 
-        public function __construct($name, $salary){
-            $this->name = $name;
-            $this->salary = $salary;
+    //     public function __construct($name, $salary){
+    //         $this->name = $name;
+    //         $this->salary = $salary;
+    //     }
+
+    //     public function showInfo(){
+    //         return "$this->name";
+    //     }
+    // }
+
+    // class Manager extends Employee {
+    //     public $department;
+
+
+    //     public function __construct($name, $salary, $department){
+    //         $this->deparment = $department;
+    //         return parent::__construct($name, $salary);
+    //     }
+
+    //     public function showInfo(){
+    //         return "$this->deparment - $this->salary - $this->name";
+    //     }
+    // }
+
+    // $manager = new Manager("Jakub", 7000, "IT");
+    // $manager->showInfo();
+    // echo $manager->showInfo();
+
+    // class Book {
+    //     public $title;
+    //     public $author;
+
+    //     public function __construct($title, $author){
+    //         $this->title = $title;
+    //         $this->author = $author;
+    //     }
+
+    //     public function getInfo(){
+    //         return "$this->title / $this->author";
+    //     }
+    // }
+
+    // class Ebook extends Book {
+    //     public $fileSize;
+
+    //     public function __construct($title, $author, $fileSize){
+    //         $this->fileSize = $fileSize;
+    //         return parent::__construct($title, $author);
+    //     }
+
+    //     public function getInfo(){
+    //         return "$this->title / $this->author / $this->fileSize";
+    //     }
+    // }
+
+    // $ebook = new Ebook("PHP dla początkujących", "Jan Kowalski", 5);
+    // $ebook->getInfo();
+    // echo $ebook->getInfo();
+
+    class Notification {
+        public $messege;
+
+        public function __construct($messege){
+            $this->messege = $messege;
         }
 
-        public function showInfo(){
-            return "$this->name";
+        public function send(){
+            return "$this->messege";
         }
     }
-
-    class Manager extends Employee {
-        public $department;
-
-
-        public function __construct($name, $salary, $department){
-            $this->deparment = $department;
-            return parent::__construct($name, $salary);
-        }
-
-        public function showInfo(){
-            return "$this->deparment - $this->salary - $this->name";
-        }
-    }
-
-    $manager = new Manager("Jakub", 7000, "IT");
-    $manager->showInfo();
-    echo $manager->showInfo();
-
-
 
 
 ?>
+
+
+
+
